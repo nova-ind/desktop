@@ -11,17 +11,23 @@
     <link rel="stylesheet" href="wallstyle.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-
+    <link rel="stylesheet" href="assets/lucide.css">
 </head>
 
 <body>
     <div class="bgcover"></div>
-    <div class="dock"><span id="whalecumLaunch"><img src="assets/icon/whalecum.svg" alt="" height="35"
-                class="dockicon"></span></div>
-    <div class="bar" onclick="window.location.href = 'shutDown.html'"><img src="assets/icon/fox.svg" id="logo" alt="">&nbsp;<span id="WindowTitle">NovaOS
-            Desktop</span>&nbsp;<div id="wb" class="noWin"><img class="WinBtn" src="assets/icon/close.svg" id="wclose" alt=""><img class="WinBtn"
-            src="assets/icon/winmode.svg" alt="" id="wmax"></div></div>
-        <p class="message">NovaOS<br>V.0405</p>
+    <div class="dock">
+        <span class="icofont-dockicon icon-home clickable" id="whalecumLaunch"></span>
+    </div>
+    <div class="bar">
+        <img src="assets/icon/fox.svg" id="logo" alt="">&nbsp;
+        <span id="WindowTitle">NovaOS</span>&nbsp;
+        <div id="wb" class="noWin">
+            <span class="icon-circle-x clickable" id="wclose"></span>
+            <span class="icon-square clickable" id="wmax"></span>
+        </div>
+    </div>
+    <p class="message clickable">NovaOS<br>V.0405</p>
 
     <div class="bg"><img class="background" src="assets/wallp.png" />
         <div class="circle-container">

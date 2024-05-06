@@ -5,6 +5,8 @@ import 'https://code.jquery.com/ui/1.13.3/jquery-ui.js';
 var onEnter = function () { }
 var onClose = function () { }
 var onLeave = function () { }
+window.memory = {}
+var windowContainer = $("body")
 var css = document.createElement("link")
 css.rel = "stylesheet"
 css.href = "https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
@@ -28,12 +30,19 @@ export default function foxyWM() {
           win.innerHTML = content;
           win.title = title
           win.dataset.title = title;
-          win.id = id;
+          if(memory[id] !== undefined){
+            memory[id] = String(Number(memory[id]) + 1)
+          }
+          else{
+            memory[id] = "1";
+          }
+          win.id = id + "-" + memory[id];
           document.body.appendChild(win);
           if (instant) {
-            wm.windows.show(id);
+            wm.windows.show(win.id);
           }
           win.parentElement.addEventListener("mouseleave", onLeave)
+          console.log(memory)
           return win;
         }
         
@@ -41,11 +50,12 @@ export default function foxyWM() {
       show: function show(id) {
         $('[aria-describedby="' + id + '"]').fadeIn();
         $("#" + id).dialog({ close: alert })
+        $("#" + id).parent().draggable( "option", "containment", windowContainer);
         $("#" + id).on('dialogclose', function (event) {
           console.log(event.target)
           wm.windows.close(event.target.id)
         });
-        $("#" + id)[0].previousElementSibling.onclick = wm.windows.unmax
+        $("#" + id)[0].previousElementSibling.onclick = wm.windows.restore
         document.querySelector("#" + id).parentElement.onmouseenter = function (e) {
           console.log(e.target.children)
           window.lastWin = { "el": e.target, "id": e.target.getAttribute("aria-describedby") }
@@ -56,6 +66,8 @@ export default function foxyWM() {
         $('[aria-describedby="' + id + '"]').hide();
         if (destroy) { wm.windows.destroy(id) }
         onClose()
+        // id = id.split("-")[0]
+        // memory[id] = String(Number(memory[id]) - 1)
       },
       destroy: function destroy(id) {
         $('[aria-describedby="' + id + '"]').fadeOut();
@@ -72,7 +84,7 @@ export default function foxyWM() {
         $('[aria-describedby="' + id + '"]')[0].style.width = "calc(100vw - calc(5.333px * 3))"
         $('[aria-describedby="' + id + '"]')[0].style.height = "calc(100vh - calc(1.2em + 100px))"
       },
-      unmax: function unmax(e) {
+      restore: function unmax(e) {
 
         console.log(e.target.id)
         if (e.target.id = window.maximisedWin) {
@@ -106,7 +118,10 @@ export default function foxyWM() {
           document.querySelector("[aria-describedby='" + id + "'] wmcontent").dataset.title = name
           document.querySelector("[aria-describedby='" + id + "'] wmcontent").childeren[0].innerText = name
         }
-      }
+      },
+    killAll: function (id){
+      document.querySelectorAll("wmcontent[id^="+id+"]").forEach(function(el){wm.windows.close(el.id)})
+    }
     },
     events: {
       setOnEnter: function soe(func) {
@@ -117,6 +132,11 @@ export default function foxyWM() {
       },
       setOnLeave: function sol(func) {
         onLeave = func;
+      }
+    },
+    config: {
+      setWContainer: function (query){
+        windowContainer = $(query)
       }
     }
   }
