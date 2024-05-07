@@ -6,7 +6,7 @@
     font-style: normal;
     font-size: 20px;
     user-select: none;
-    transition: transform 0.1s ease;
+    transition: transform 0.15s ease;
     -webkit-user-drag: none;
 }
 *:not(.ui-resizable-handle, .ui-draggable-handle, .ui-draggable-handle *){

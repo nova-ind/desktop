@@ -1,11 +1,12 @@
 // foxywm.js
-import defaults from './foxywm.config.json' assert { type: 'json' };
+import defaults from './foxywm.default.json' with { type: 'json' };
 import 'https://code.jquery.com/jquery-3.7.1.js';
 import 'https://code.jquery.com/ui/1.13.3/jquery-ui.js';
+var fwmStor = {};
 var onEnter = function () { }
 var onClose = function () { }
 var onLeave = function () { }
-window.memory = {}
+fwmStor.memory = {}
 var windowContainer = $("body")
 var css = document.createElement("link")
 css.rel = "stylesheet"
@@ -19,7 +20,7 @@ function handleMouseMove(event) {
   window.x = event.pageX;
   window.y = event.pageY;
 }
-export default function foxyWM() {
+export default function fwmInit() {
   console.log(defaults);
 
   window.wm = {
@@ -30,19 +31,19 @@ export default function foxyWM() {
           win.innerHTML = content;
           win.title = title
           win.dataset.title = title;
-          if(memory[id] !== undefined){
-            memory[id] = String(Number(memory[id]) + 1)
+          if(fwmStor.memory[id] !== undefined){
+            fwmStor.memory[id] = String(Number(fwmStor.memory[id]) + 1)
           }
           else{
-            memory[id] = "1";
+            fwmStor.memory[id] = "1";
           }
-          win.id = id + "-" + memory[id];
+          win.id = id + "-" + fwmStor.memory[id];
           document.body.appendChild(win);
           if (instant) {
             wm.windows.show(win.id);
           }
           win.parentElement.addEventListener("mouseleave", onLeave)
-          console.log(memory)
+          console.log(fwmStor.memory)
           return win;
         }
         
@@ -53,9 +54,9 @@ export default function foxyWM() {
         $("#" + id).parent().draggable( "option", "containment", windowContainer);
         $("#" + id).on('dialogclose', function (event) {
           console.log(event.target)
-          wm.windows.close(event.target.id)
+         wm.windows.close(event.target.id)
         });
-        $("#" + id)[0].previousElementSibling.onclick = wm.windows.restore
+        $("#" + id)[0].previousElementSibling.onclick =wm.windows.restore
         document.querySelector("#" + id).parentElement.onmouseenter = function (e) {
           console.log(e.target.children)
           window.lastWin = { "el": e.target, "id": e.target.getAttribute("aria-describedby") }
@@ -64,10 +65,10 @@ export default function foxyWM() {
       },
       close: function close(id, destroy = true) {
         $('[aria-describedby="' + id + '"]').hide();
-        if (destroy) { wm.windows.destroy(id) }
+        if (destroy) {wm.windows.destroy(id) }
         onClose()
-        // id = id.split("-")[0]
-        // memory[id] = String(Number(memory[id]) - 1)
+        id = id.split("-")[0]
+        fwmStor.memory[id] = String(Number(fwmStor.memory[id]) - 1)
       },
       destroy: function destroy(id) {
         $('[aria-describedby="' + id + '"]').fadeOut();
@@ -75,7 +76,7 @@ export default function foxyWM() {
         $('#' + id).remove();
       },
       default: function def(id) {
-        wm.windows.new(defaults[id].content, defaults[id].title, id, true);
+       wm.windows.new(defaults[id].content, defaults[id].title, id, true);
       },
       maximise: function max(id) {
         $('[aria-describedby="' + id + '"]')[0].style.top = "40px"
@@ -138,8 +139,13 @@ export default function foxyWM() {
       setWContainer: function (query){
         windowContainer = $(query)
       }
+    },
+    store: {
+      countAppWin: function (id){
+        return fwmStor.memory[id]
+      }
     }
   }
 };
 
-foxyWM()
+fwmInit()
