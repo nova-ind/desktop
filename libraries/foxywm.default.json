@@ -14,6 +14,6 @@
     "fm": {
         "title": "File Manager",
         "appContentID": "fm.nvapp.html",
-        "content": "If this is visible, your FoxyWM version does not support appContentIDs"
+        "content": "<iframe frameborder=0 width='100%' height='100%' src='./applications/fm.nvapp.html'></iframe>"
     }
 }

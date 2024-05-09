@@ -36,6 +36,32 @@ window.foxyfs = {
 		}
 		return content[nameofFile]
 	},
+	getDirHandle: async function (path1) {
+		var path = path1.split("/")
+		var nameofFile = path[path.length - 1]
+		path[path.length - 1] = '';
+		path = path.filter(function (el) {
+			return el != '';
+		});
+		var content = {};
+		if (path.length == 0) {
+			var dirHandle = await opfsRoot.getDirectoryHandle(nameofFile);
+		}
+		else if (path.length > 1) {
+			var dirHandle = await opfsRoot.getDirectoryHandle(path[0]);
+
+			for (var item of path) {
+				if (item == path[0]) {
+
+				} else {
+					dirHandle = await dirHandle.getDirectoryHandle(item)
+				}
+			}
+		} else if (path.length == 1) {
+			var dirHandle = await opfsRoot.getDirectoryHandle(path[0]);
+		}
+		return dirHandle
+	},
 	init: async function () {
 		var directoryHandle = await opfsRoot.getDirectoryHandle('sys', { create: true });
 		directoryHandle = await opfsRoot.getDirectoryHandle('user', { create: true });
@@ -149,7 +175,7 @@ window.foxyfs = {
 		return content[nameofFile]
 	},
 	read: async function (path) {
-		var h =  await foxyfs.getFileHandle(path)
+		var h = await foxyfs.getFileHandle(path)
 		var file = await h.getFile()
 		return await file.text()
 	},
@@ -160,12 +186,23 @@ window.foxyfs = {
 		stream.close()
 		return h;
 	},
-	rmfile: async function (path){
-		h = await foxyfs.getFileHandle(path)
+	rmfile: async function (path) {
+		var h = await foxyfs.getFileHandle(path)
 		h.remove()
 	},
-	rmdir: async function (path, recursive=false){
-		
+	rmdir: async function (path) {
+		var h = await foxyfs.getDirHandle(path)
+		var returnVal = "it no worky :(";
+		try {
+			h.remove({ recursive: false })
+			returnVal = "Successful"
+		} catch {
+
+			h.remove({ recursive: true })
+			returnVal = "Successful, but had to work recursivly"
+
+		}
+		return returnVal;
 	}
 }
 foxyfs.init()

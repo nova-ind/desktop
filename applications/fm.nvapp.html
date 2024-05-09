@@ -1,16 +1,19 @@
-<body>
+<link rel="stylesheet" href="../assets/lucide.css">
+<appContent>
     <link rel="stylesheet" href="../appStyle.css">
     <navRail>
-        <back />
-        <forward />
-        <up />
+        <back></back>
+        <forward></forward>
+        <up></up>
         <breadcrumbs></breadcrumbs>
         <search></search>
     </navRail>
-    <partition size="1/4">
-        <ul id="fmBkms"></ul>
-    </partition>
-    <partition size="3/4">
-        <ul id="fileListing"></ul>
-    </partition>
-</body>
+    <main>
+        <ul id="files"></ul>
+    </main>
+    <script src="../libraries/foxyfs.js"></script>
+    <script>
+        root = foxyfs.ls("/")
+        console.log(root)
+    </script>
+</inline>
