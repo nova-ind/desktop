@@ -3,12 +3,17 @@
         "title": "Welcome to Nova OS",
         "content": "Welcome to Nova OS Proto. Keep in mind that this is in early stages."
     },
-    "bi2o": {
+    "bio": {
         "title": "Who is Nova?",
         "content": "piss to Nova OS Proto. Keep in mind that this is in early stages."
     },
     "cvm": {
         "title":"bantene shampoo",
         "content": "<video src='../assets/I_use_Pantene_shampoo_along_with_Dove_soap_.mov' autoplay loop></video>"
+    },
+    "fm": {
+        "title": "File Manager",
+        "appContentID": "fm.nvapp.html",
+        "content": "If this is visible, your FoxyWM version does not support appContentIDs"
     }
 }
