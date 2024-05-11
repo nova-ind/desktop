@@ -1,8 +1,9 @@
 document.addEventListener("mousemove", function (e) {
     setTimeout(function () {
-        window.parent.document.querySelector(".cur").style.top = `${e.clientY}px`
+        var rect = window.frameElement.getBoundingClientRect()
+        window.parent.document.querySelector(".cur").style.top = `${rect.top + e.clientY}px`
         // console.log(e)
-        window.parent.document.querySelector(".cur").style.left = `${e.clientX}px`
+        window.parent.document.querySelector(".cur").style.left = `${rect.left+e.clientX}px`
         if (e.srcElement.classList.contains("clickable")) {
             window.parent.document.querySelector(".cur").style.background = "#0000FF";
         }

@@ -1,22 +1,29 @@
-body{
+body {
     width: 100vw;
-    padding:0px;
+    max-width: 100vw;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0px;
     height: 100vh;
     margin: 0px;
     background-color: none;
-    color:white !important;
+    color: white !important;
+    cursor: none;
 }
+
 @font-face {
     font-family: "lucide";
     src: url("lucide.woff") format("woff");
-  
+
 }
-*{
-    font-family: system-ui, 'lucide';
-    color:white !important;
+
+* {
+    font-family: 'lucide', system-ui;
+    color: white !important;
 }
-navRail{
-    width: 100vw;   
+
+navRail {
+    width: 100vw;
     background: rgba(14, 14, 14, 0.3);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -25,25 +32,30 @@ navRail{
     height: 1em;
     display: block;
 }
-back::after{
+
+back::after {
     display: inline;
     content: "\e04c";
-    padding-top:0.2em;
-    padding-left:0.5em;
+    padding-top: 0.2em;
+    padding-left: 0.5em;
     font-size: 1.3em;
-    color:white;
+    color: white;
 }
-forward::after{
+
+forward::after {
     display: inline;
     content: "\e04c";
-    padding-top:0.2em;
-    padding-left:0.5em;
+    padding-top: 0.2em;
+    padding-left: 0.5em;
     font-size: 1.3em;
-    color:white;
+    color: white;
 }
-.fileMan li{
+
+.fileMan li {
     list-style-type: "";
+
 }
+
 .fileMan li.folder::before {
     content: "\e333";
     border-radius: 0ch;
@@ -51,6 +63,7 @@ forward::after{
     margin-inline-end: 0ch;
     margin-left: -32.5px;
 }
+
 .fileMan li.fileGeneric::before {
     content: "\e0c1";
     border-radius: 0ch;
@@ -58,10 +71,51 @@ forward::after{
     margin-inline-end: 0ch;
     margin-left: -32.5px;
 }
+
 .fileMan li.parentDir::before {
     content: "\e04e";
     border-radius: 0ch;
     padding-inline: 0.5ch;
     margin-inline-end: 0ch;
     margin-left: -32.5px;
+}
+
+button {
+    border: 0px;
+    outline: none;
+    padding:6px;
+    background: rgba(14, 14, 14, 0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin:5px;
+    display: inline;    
+}
+.buttonRow{
+    display: inline-block;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5); }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scroll-bar-bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-bar-color);
+    border-radius: 20px;
+    border: 3px solid var(--scroll-bar-bg-color);
 }

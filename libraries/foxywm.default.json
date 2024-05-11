@@ -12,6 +12,7 @@
         "content": "<video src='../assets/I_use_Pantene_shampoo_along_with_Dove_soap_.mov' autoplay loop></video>"
     },
     "fm": {
+        "minH": "185px",
         "title": "File Manager",
         "appContentID": "fm.nvapp.html",
         "content": "<iframe frameborder=0 width='100%' height='100%' src='./applications/fm.nvapp.html'></iframe>"

@@ -2,6 +2,10 @@
     <link rel="stylesheet" href="../assets/lucide.css">
     <appContent>
         <link rel="stylesheet" href="../appStyle.css">
+        <div class="buttonRow"><button><span class="icon-clipboard-paste"></span> Paste</button>
+            <button><span class="icon-clipboard-copy"></span> Copy</button>
+            <button><span class="icon-delete"></span> Delete</button>
+            <button><span class="icon-send"></span> Send</button></div>
         <ul class="fileMan">
 
         </ul>
@@ -11,40 +15,48 @@
         import '../libraries/foxywincontent.js';
         window.fm = {
             refresh: async function (dir) {
+                console.log(dir)
                 var path = dir.split("/")
-                path[path.length - 1] = ''
                 path = path.filter(function (el) {
-                    return el != '';
+                    if (el != '') {
+                        return el;
+                    }
                 });
+                path[path.length - 1] = ''
+                console.log(path)
+                console.log(path)
                 path = path.join("/")
-                document.querySelector("ul").innerHTML = `<li class="parentDir" onclick="alert('You cant go up.')">.. (Up one level)</li>`
-                if(dir.length > 1){
-                    document.querySelector("ul").innerHTML = `<li class="parentDir" onclick="fm.up(`+path+`)">.. (Up one level)</li>`
+                document.querySelector("ul").innerHTML = `<li class="parentDir clickable" onclick="alert('You cant go up.')">.. (Up one level)</li>`
+                if (dir.length > 1) {
+                    document.querySelector("ul").innerHTML = `<li class="parentDir clickable" onclick="fm.up('` + path + `')">.. (Up one level)</li>`
                 }
-                
+
             },
             nav: async function (where) {
                 fm.refresh(where)
                 var rootFirstIndex = await foxyfs.ls(where)
                 rootFirstIndex.forEach(node => {
                     var li = document.createElement("li")
+                    li.classList.add("clickable")
                     if (node.kind == "directory") {
-                        li.class = "folder"
+                        li.classList.add("folder")
                         li.onclick = function () {
                             fm.nav(where + "/" + node.name)
                         }
                     } else {
-                        li.class = "fileGeneric"
-                        li.onclick = function () {
-                            alert("file opening not supported yet")
+                        li.classList.add("fileGeneric")
+                        li.onclick = function async() {
+                            foxyfs.read(where + "/" + node.name).then(text => {
+                                alert(text)
+                            })
                         }
                     }
                     li.innerText = node.name
                     document.querySelector("ul").appendChild(li)
                 });
             },
-            up: async function () {
-
+            up: async function (path) {
+                fm.nav(path)
             }
         }
         fm.nav("/")
