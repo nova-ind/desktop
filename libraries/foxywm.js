@@ -98,7 +98,6 @@ export default function fwmInit() {
       },
       default: function def(id) {
         if (defaults[id].hasOwnProperty("appContentID")) {
-          alert("appcontentid exists")
           wm.windows.new("", defaults[id].title, id, true, defaults[id].appContentID);
 
         } else {
