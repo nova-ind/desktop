@@ -67,6 +67,7 @@ body, html{
     padding: 5px 5px 0px 5px;
     text-align: center;
     border-top-right-radius: 10px;
+    border: 1px solid #2a2a2a;
 }
 .dockicon{
     padding: 5px;
@@ -151,4 +152,8 @@ body, html{
     background-color: var(--scroll-bar-color);
     border-radius: 20px;
     border: 3px solid var(--scroll-bar-bg-color);
+}
+
+#logo {
+    vertical-align: middle;
 }
