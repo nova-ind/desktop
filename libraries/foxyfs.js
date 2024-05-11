@@ -72,9 +72,9 @@ window.foxyfs = {
 			return el != '';
 		});
 		if (path.length == 0) {
-			var content = {};
+			var content = [];
 			for await (let [name, handle] of opfsRoot.entries()) {
-				content[name] = handle.kind
+				content.push({name: name, kind:handle.kind})
 			}
 			return content;
 		}
@@ -87,15 +87,15 @@ window.foxyfs = {
 					dirHandle = await dirHandle.getDirectoryHandle(item)
 				}
 			}
-			var content = {};
+			var content = [];
 			for await (let [name, handle] of dirHandle.entries()) {
-				content[name] = handle.kind
+				content.push({name: name, kind:handle.kind})
 			}
 			return content;
 		} else if (path.length == 1) {
-			var content = {};
+			var content = [];
 			for await (let [name, handle] of dirHandle.entries()) {
-				content[name] = handle.kind
+				content.push({name: name, kind:handle.kind})
 			}
 			return content;
 		}

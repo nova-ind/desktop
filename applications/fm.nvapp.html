@@ -1,19 +1,52 @@
-<link rel="stylesheet" href="../assets/lucide.css">
-<appContent>
-    <link rel="stylesheet" href="../appStyle.css">
-    <navRail>
-        <back></back>
-        <forward></forward>
-        <up></up>
-        <breadcrumbs></breadcrumbs>
-        <search></search>
-    </navRail>
-    <main>
-        <ul id="files"></ul>
-    </main>
-    <script src="../libraries/foxyfs.js"></script>
-    <script>
-        root = foxyfs.ls("/")
-        console.log(root)
+<body>
+    <link rel="stylesheet" href="../assets/lucide.css">
+    <appContent>
+        <link rel="stylesheet" href="../appStyle.css">
+        <ul class="fileMan">
+
+        </ul>
+    </appContent>
+    <script type="module">
+        import '../libraries/foxyfs.js';
+        import '../libraries/foxywincontent.js';
+        window.fm = {
+            refresh: async function (dir) {
+                var path = dir.split("/")
+                path[path.length - 1] = ''
+                path = path.filter(function (el) {
+                    return el != '';
+                });
+                path = path.join("/")
+                document.querySelector("ul").innerHTML = `<li class="parentDir" onclick="alert('You cant go up.')">.. (Up one level)</li>`
+                if(dir.length > 1){
+                    document.querySelector("ul").innerHTML = `<li class="parentDir" onclick="fm.up(`+path+`)">.. (Up one level)</li>`
+                }
+                
+            },
+            nav: async function (where) {
+                fm.refresh(where)
+                var rootFirstIndex = await foxyfs.ls(where)
+                rootFirstIndex.forEach(node => {
+                    var li = document.createElement("li")
+                    if (node.kind == "directory") {
+                        li.class = "folder"
+                        li.onclick = function () {
+                            fm.nav(where + "/" + node.name)
+                        }
+                    } else {
+                        li.class = "fileGeneric"
+                        li.onclick = function () {
+                            alert("file opening not supported yet")
+                        }
+                    }
+                    li.innerText = node.name
+                    document.querySelector("ul").appendChild(li)
+                });
+            },
+            up: async function () {
+
+            }
+        }
+        fm.nav("/")
     </script>
-</inline>
+</body>

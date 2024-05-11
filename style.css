@@ -127,3 +127,6 @@ body, html{
 .ui-resizable-handle{
     scale: 1.2;
 }
+.ui-dialog-title{
+    font-size:1.1em;
+}

@@ -110,14 +110,18 @@ export default function fwmInit() {
         }
       },
       setName: function setName(id, name) {
+        console.log(window)
         if (id == "fwm.current") {
           console.log(lastWin)
           document.querySelector("[aria-describedby='" + lastWin.id + "'] wmcontent").dataset.title = name
-          document.querySelector("[aria-describedby='" + lastWin.id + "'] wmcontent").childeren[0].innerText = name
+          document.querySelector("[aria-describedby='" + lastWin.id + "']").children[0].innerText = name
 
         } else {
-          document.querySelector("[aria-describedby='" + id + "'] wmcontent").dataset.title = name
-          document.querySelector("[aria-describedby='" + id + "'] wmcontent").childeren[0].innerText = name
+          if(window.frameElement !== null){
+            window.parent.alert("bogos binted")
+          } else {
+            window.document.querySelector("[aria-describedby='" + id + "'] wmcontent").dataset.title = name
+            window.document.querySelector("[aria-describedby='" + id + "']").children[0].innerText = name}
         }
       },
     killAll: function (id){

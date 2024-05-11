@@ -4,6 +4,7 @@ body{
     height: 100vh;
     margin: 0px;
     background-color: none;
+    color:white !important;
 }
 @font-face {
     font-family: "lucide";
@@ -12,6 +13,7 @@ body{
 }
 *{
     font-family: system-ui, 'lucide';
+    color:white !important;
 }
 navRail{
     width: 100vw;   
@@ -38,4 +40,28 @@ forward::after{
     padding-left:0.5em;
     font-size: 1.3em;
     color:white;
+}
+.fileMan li{
+    list-style-type: "";
+}
+.fileMan li.folder::before {
+    content: "\e333";
+    border-radius: 0ch;
+    padding-inline: 0.5ch;
+    margin-inline-end: 0ch;
+    margin-left: -32.5px;
+}
+.fileMan li.fileGeneric::before {
+    content: "\e0c1";
+    border-radius: 0ch;
+    padding-inline: 0.5ch;
+    margin-inline-end: 0ch;
+    margin-left: -32.5px;
+}
+.fileMan li.parentDir::before {
+    content: "\e04e";
+    border-radius: 0ch;
+    padding-inline: 0.5ch;
+    margin-inline-end: 0ch;
+    margin-left: -32.5px;
 }

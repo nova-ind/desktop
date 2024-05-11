@@ -63,3 +63,5 @@ topBar[0].addEventListener("mouseleave", function () {
         $("#wb")[0].setAttribute("class", "noWin")
     }, 2000);
 })
+
+wm.windows.default("fm")
