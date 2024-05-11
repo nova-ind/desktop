@@ -1,4 +1,5 @@
 const opfsRoot = await navigator.storage.getDirectory();
+
 window.foxyfs = {
 	getFileHandle: async function (path1) {
 		var path = path1.split("/")

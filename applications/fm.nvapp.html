@@ -3,8 +3,8 @@
     <appContent>
         <link rel="stylesheet" href="../appStyle.css">
         <div class="buttonRow"><button><span class="icon-clipboard-paste"></span> Paste</button>
-            <button><span class="icon-clipboard-copy"></span> Copy</button>
-            <button><span class="icon-delete"></span> Delete</button>
+            <button><span class="icon-clipboard-copy" hidden></span> Copy</button>
+            <button><span class="icon-delete" hidden></span> Delete</button>
             <button><span class="icon-send"></span> Send</button></div>
         <ul class="fileMan">
 
@@ -15,7 +15,6 @@
         import '../libraries/foxywincontent.js';
         window.fm = {
             refresh: async function (dir) {
-                console.log(dir)
                 var path = dir.split("/")
                 path = path.filter(function (el) {
                     if (el != '') {
@@ -23,8 +22,6 @@
                     }
                 });
                 path[path.length - 1] = ''
-                console.log(path)
-                console.log(path)
                 path = path.join("/")
                 document.querySelector("ul").innerHTML = `<li class="parentDir clickable" onclick="alert('You cant go up.')">.. (Up one level)</li>`
                 if (dir.length > 1) {

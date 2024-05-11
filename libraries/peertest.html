@@ -18,7 +18,8 @@
     Log Goes Here: <br>
     <textarea readonly id="log" cols="30" rows="10"></textarea>
     <script src="peer.js"></script>
-    <script>
+    <script src="foxydrop.js" type="module"></script>
+    <!-- <script>
         var els = {
             me: {
                 id: document.querySelector("#myID"),
@@ -32,7 +33,18 @@
             btn: document.querySelector("#send"),
             log: document.querySelector("#log")
         }
-        var fucker = gen(4);
+        function giveMeAnIDorDIEMF() {
+            switch (localStorage.novaID) {
+                case undefined:
+                    localStorage.novaID = gen(4)
+                    return localStorage.novaID
+                default:
+                    return localStorage.novaID
+
+                    break;
+            }
+        }
+        var fucker = giveMeAnIDorDIEMF();
         peer = new Peer(fucker)
         async function getId() {
             setInterval(function () {
@@ -92,7 +104,7 @@
                 conn.send(data);
             });
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap');
-*{
+
+* {
     font-family: "Familjen Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-weight: normal;
@@ -9,57 +10,67 @@
     transition: transform 0.15s ease;
     -webkit-user-drag: none;
 }
-*:not(.ui-resizable-handle, .ui-draggable-handle, .ui-draggable-handle *){
-    cursor:none !important;
+
+*:not(.ui-resizable-handle, .ui-draggable-handle, .ui-draggable-handle *) {
+    cursor: none !important;
 }
-body, html{
-    padding:0px;
-    margin:0px;
+
+body,
+html {
+    padding: 0px;
+    margin: 0px;
     height: calc(100vh);
     max-width: 100vw;
     width: 100vw;
 }
-.bg{
+
+.bg {
     width: 100vw;
     height: 100vh;
     position: absolute;
     z-index: 1;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
 }
-.bgcover{
+
+.bgcover {
     width: 100vw;
     max-width: 100vw;
     overflow: hidden;
     height: calc(100vh - calc(1.2em + 70px));
     position: absolute;
     z-index: 1;
-    top:calc(1.2em + 15px);
+    top: calc(1.2em + 15px);
     background-color: none;
-    left:0px;
+    left: 0px;
 }
-.icofont-dockicon::before{
-    color:white;
+
+.icofont-dockicon::before {
+    color: white;
     font-size: 1.9em;
 }
-.bar *{
-    font-size:0.8em;
-    margin-top:10px;
+
+.bar * {
+    font-size: 0.8em;
+    margin-top: 10px;
 }
-#WindowTitle{
+
+#WindowTitle {
     font-weight: bold;
-    margin-left:0.1em;
+    margin-left: 0.1em;
 }
-.WinBtn{
-    margin-right:0.4em;
-    width:0.9em;
+
+.WinBtn {
+    margin-right: 0.4em;
+    width: 0.9em;
 }
-.dock{
-    width:50vw;
-    height:50px;
-    position:absolute;
+
+.dock {
+    width: 50vw;
+    height: 50px;
+    position: absolute;
     bottom: 0px;
-    left:25vw;
+    left: 25vw;
     background-color: rgba(14, 14, 14, 0.8);
     z-index: 10000;
     backdrop-filter: blur(10px);
@@ -69,42 +80,62 @@ body, html{
     border-top-right-radius: 10px;
     border: 1px solid #2a2a2a;
 }
-.dockicon{
+
+.dockicon {
     padding: 5px;
-    padding-bottom:0px
+    padding-bottom: 0px
 }
-.bar{
-    height:calc(1.2em);
-    color:white;
-    padding-left:15px;
-    padding-bottom:15px;
-    top:15px;
+
+.bar {
+    height: calc(1.2em);
+    color: white;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    top: 15px;
     width: calc(100vw - 15px);
     background-color: rgba(14, 14, 14, 0.8);
     position: absolute;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
     z-index: 10000;
     backdrop-filter: blur(10px);
 }
-.ui-dialog{
+
+.ui-dialog {
     background: rgba(14, 14, 14, 0.8) !important;
-    padding:15px !important;
+    padding: 15px !important;
     backdrop-filter: blur(10px);
     max-width: calc(100vw - 32px);
 }
-.ui-dialog *{color:white !important;}
-.ui-widget-header{
-    border: 0px !important;
-    background:none !important;
-    padding: 0px !important;
-    
+
+.ui-dialog * {
+    color: white !important;
 }
-.ui-widget-header *{font-size: 30px;}
-.ui-dialog-titlebar-close{display: none !important;}
-.ui-widget.ui-widget-content{overflow: hidden !important;}
-.ui-dialog-content.ui-widget-content{padding: 0px !important;}
-.cur{
+
+.ui-widget-header {
+    border: 0px !important;
+    background: none !important;
+    padding: 0px !important;
+
+}
+
+.ui-widget-header * {
+    font-size: 30px;
+}
+
+.ui-dialog-titlebar-close {
+    display: none !important;
+}
+
+.ui-widget.ui-widget-content {
+    overflow: hidden !important;
+}
+
+.ui-dialog-content.ui-widget-content {
+    padding: 0px !important;
+}
+
+.cur {
     width: 1em;
     height: 1em;
     border-radius: 50%;
@@ -113,25 +144,32 @@ body, html{
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
-    mix-blend-mode:difference;
+    mix-blend-mode: difference;
     backdrop-filter: blur(2px);
     /* margin-top: 8px;
     margin-left: 3px; */
 }
-#wb{
+
+#wb {
     display: inline;
     opacity: 1;
 }
-#wb.noWin{
+
+#wb.noWin {
     opacity: 0;
 }
-.ui-resizable-handle{
+
+.ui-resizable-handle {
     scale: 1.2;
 }
-.ui-dialog-title{
-    font-size:1.1em;
+
+.ui-dialog-title {
+    font-size: 1.1em;
 }
-::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5); }
+
+::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.5);
+}
 
 * {
     scrollbar-width: thin;
@@ -156,4 +194,21 @@ body, html{
 
 #logo {
     vertical-align: middle;
+}
+
+.toastify.on.toastify-right.toastify-top {
+    margin-top: calc(1.2em + 10px);
+    background: rgba(14, 14, 14, 0.8);
+    border: 1px solid #c5c5c5;
+    text-align: right;
+
+}
+
+.toastify span {
+    font-size: smaller;
+    font-weight: 100;
+}
+
+.toastify b {
+    font-weight: 900;
 }

@@ -10,6 +10,5 @@ document.addEventListener("mousemove", function (e) {
         else {
             window.parent.document.querySelector(".cur").style.background = "#FFFFFF"
         }
-        console.log("hi")
     }, 0)
 })

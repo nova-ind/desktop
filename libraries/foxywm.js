@@ -21,12 +21,11 @@ function handleMouseMove(event) {
   window.y = event.pageY;
 }
 export default function fwmInit() {
-  console.log(defaults);
 
   window.wm = {
     windows: {
       new: function nw(content, title, id, instant = false, acid = "No") {
-        if (acid != "no") { 
+        if (acid != "No") { 
           const win = document.createElement("iframe");
             win.src = "applications/"+acid;
             win.title = title
@@ -43,7 +42,6 @@ export default function fwmInit() {
               wm.windows.show(win.id);
             }
             win.parentElement.addEventListener("mouseleave", onLeave)
-            console.log(fwmStor.memory)
             return win;
           } else {
           if (document.querySelector("#" + id) == null) {
@@ -63,7 +61,6 @@ export default function fwmInit() {
               wm.windows.show(win.id);
             }
             win.parentElement.addEventListener("mouseleave", onLeave)
-            console.log(fwmStor.memory)
             return win;
           }
         }
@@ -79,7 +76,6 @@ export default function fwmInit() {
         });
         $("#" + id)[0].previousElementSibling.onclick = wm.windows.restore
         document.querySelector("#" + id).parentElement.onmouseenter = function (e) {
-          console.log(e.target.children)
           window.lastWin = { "el": e.target, "id": e.target.getAttribute("aria-describedby") }
           onEnter()
         };
@@ -113,7 +109,6 @@ export default function fwmInit() {
       },
       restore: function unmax(e) {
 
-        console.log(e.target.id)
         if (e.target.id = window.maximisedWin) {
           window.maximisedWin = ""
           console.log(e)
@@ -129,8 +124,14 @@ export default function fwmInit() {
       },
       getName: function getName(id) {
         if (id == "fwm.current") {
-          console.log(lastWin)
-          return document.querySelector("[aria-describedby='" + lastWin.id + "'] wmcontent").dataset.title
+          switch (document.querySelector("[aria-describedby='"+lastWin.id+"'] wmcontent")) {
+            case null:
+              return document.querySelector("[aria-describedby='"+lastWin.id+"'] iframe").dataset.title
+              break;
+          
+            default:
+              return document.querySelector("[aria-describedby='"+lastWin.id+"'] wmcontent").dataset.title 
+          }
         } else {
           return document.querySelector("#" + id).dataset.title
         }
