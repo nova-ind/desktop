@@ -191,7 +191,12 @@ html {
     border-radius: 20px;
     border: 3px solid var(--scroll-bar-bg-color);
 }
-
+*::-webkit-scrollbar:vertical{
+    cursor:url("assets/vscroll.cur")
+}
+*::-webkit-scrollbar:horizontal{
+    cursor:url("assets/hscroll.cur")
+}
 #logo {
     vertical-align: middle;
 }

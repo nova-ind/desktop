@@ -10,12 +10,18 @@ body {
     color: white !important;
     cursor: none;
 }
-
-
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap');
 
 * {
-    font-family: 'lucide', system-ui;
-    color: white !important;
+    font-family: "lucide","Familjen Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    user-select: none;
+    transition: transform 0.15s ease;
+    -webkit-user-drag: none;
+    color: white;
 }
 
 navRail {
@@ -107,11 +113,11 @@ button {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--scroll-bar-bg-color);
+    background: red;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-bar-color);
+    background-color: red;
     border-radius: 20px;
-    border: 3px solid var(--scroll-bar-bg-color);
+    border: 3px solid red;
 }

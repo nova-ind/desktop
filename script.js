@@ -19,9 +19,25 @@ wm.events.setOnEnter(
         $("#wb")[0].setAttribute("class", "");
         clearTimeout(timeout);
 })
+function isScrollable(element) {
+    if(element.scrollWidth > element.clientWidth && element.scrollHeight > element.clientHeight){
+        return "all"
+    } else if(element.scrollWidth > element.clientWidth){
+        return "hor"
+    } else if(element.scrollHeight > element.clientHeight){
+        return "vert"
+    } else {
+        return "no"
+    }
+};
 wm.events.setOnClose(function () { $("#WindowTitle")[0].innerText = "NovaOS"; $("#wb")[0].setAttribute("class", "noWin") })
 document.addEventListener("mousemove", function (e) {
     setTimeout(function () {
+        if(isScrollable(e.srcElement) == "vert"){
+            e.srcElement.style.cursor = "url ('../assets/vscroll.cur')"
+        }  else if(isScrollable(e.srcElement) == "hor"){
+            e.srcElement.style.cursor = "url ('../assets/hscroll.cur')"
+        } else if(isScrollable(e.srcElement) == "all"){}
         document.querySelector(".cur").style.top = `${e.clientY}px`
         // console.log(e)
         document.querySelector(".cur").style.left = `${e.clientX}px`
