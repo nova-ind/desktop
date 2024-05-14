@@ -27,7 +27,6 @@ function getId() {
     }
 }
 var peer = new Peer(getId())
-console.log("m,nl. vs")
 peer.on('open', (peerId) => {
     console.log(peerId)
 });
