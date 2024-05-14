@@ -33,8 +33,8 @@ export default function fwmInit() {
     windows: {
       new: function nw(content, title, id, instant = false, acid = "No") {
         if (acid != "No") { 
-          const win = document.createElement("wmcontent");
-          win.innerHTML = httpGet('applications/'+acid)
+          const win = document.createElement("iframe");
+          win.src = 'applications/'+acid
           win.title = title
           win.dataset.title = title;
           if (fwmStor.memory[id] !== undefined) {
