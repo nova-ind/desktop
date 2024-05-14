@@ -20,36 +20,29 @@ function handleMouseMove(event) {
   window.x = event.pageX;
   window.y = event.pageY;
 }
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
 export default function fwmInit() {
 
   window.wm = {
     windows: {
       new: function nw(content, title, id, instant = false, acid = "No") {
         if (acid != "No") { 
-          const win = document.createElement("wmcontent");
-          win.innerHTML = httpGet('applications/'+acid)
-          win.title = title
-          win.dataset.title = title;
-          if (fwmStor.memory[id] !== undefined) {
-            fwmStor.memory[id] = String(Number(fwmStor.memory[id]) + 1)
-          }
-          else {
-            fwmStor.memory[id] = "1";
-          }
-          win.id = id + "-" + fwmStor.memory[id];
-          document.body.appendChild(win);
-          if (instant) {
-            wm.windows.show(win.id);
-          }
-          win.parentElement.addEventListener("mouseleave", onLeave)
-          return win;
+          const win = document.createElement("embed");
+            win.src = "applications/"+acid;
+            win.title = title
+            win.dataset.title = title;
+            if (fwmStor.memory[id] !== undefined) {
+              fwmStor.memory[id] = String(Number(fwmStor.memory[id]) + 1)
+            }
+            else {
+              fwmStor.memory[id] = "1";
+            }
+            win.id = id + "-" + fwmStor.memory[id];
+            document.body.appendChild(win);
+            if (instant) {
+              wm.windows.show(win.id);
+            }
+            win.parentElement.addEventListener("mouseleave", onLeave)
+            return win;
           } else {
           if (document.querySelector("#" + id) == null) {
             const win = document.createElement("wmcontent");
