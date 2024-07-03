@@ -1,342 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Nova</title>
-    <meta name="description" content="Nova's shitty website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="wallstyle.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-    <link rel="stylesheet" href="assets/lucide.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>novaos desktop</title>
+    <script src="assets/libs/j.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- <script src="assets/libs/jui/jquery-ui.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="assets/libs/jui/jquery-ui.min.css"> -->
 </head>
 
 <body>
-    <div class="bgcover"></div>
-    <div class="dock">
-        <span class="icofont-dockicon icon-home clickable" id="whalecumLaunch"></span>
+    <div class="floatingStatus">
+        <p class="jeremydorgan"></p>
+        <p class="jeremydorganFriend"></p>
     </div>
-    <div class="bar">
-        <img src="assets/icon/fox.svg" id="logo" alt="">&nbsp;
-        <span id="WindowTitle">NovaOS</span>&nbsp;
-        <div id="wb" class="noWin">
-            <span class="icon-circle-x clickable" id="wclose"></span>
-            <span class="icon-square clickable" id="wmax"></span>
-        </div>
-    </div>
-    <p class="message clickable">NovaOS<br>V.1.1</p>
-
-    <div class="bg"><img class="background" src="assets/wallp.png" />
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-container">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <script type="module" src="script.js"></script>
-    <script type="module" src="libraries/foxywm.js"></script>
-    <div class="cur"></div>
-    <script src="libraries/ht2canvas.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <span class="splitLeftHere wsplit"></span>
+    <span class="splitRightHere wsplit"></span>
+    <div class="windowSafeArea"></div>
+    <dock>
+        <dockcontent>
+            <img class="dockicon" src="./assets/icons/apps/appdrawer.svg" />
+            <img class="dockicon" src="./assets/icons/apps/cast.svg" />
+            <img class="dockicon" src="./assets/icons/apps/networking.svg" />
+            <img class="dockicon" src="./assets/icons/apps/os.svg" />
+            <img class="dockicon" src="./assets/icons/apps/store.svg" />
+            <img class="dockicon" src="./assets/icons/apps/settings.svg" />
+            <img class="dockicon" src="./assets/icons/apps/wdcompat.svg" />
+            <img class="dockicon active" src="./assets/icons/apps/files.svg" />
+        </dockcontent>
+    </dock>
+    <taskbar class="edgePiece">
+        <zone class="left">
+            <pill class="black"><span class="material-symbols-outlined">search</span></pill>
+            <pill class="lblue"><span class="material-symbols-outlined">notifications</span>2</pill>
+            <pill class="lpurp"><span class="material-symbols-outlined">check</span>2</pill>
+        </zone>
+        <zone class="middle">middol</zone>
+        <zone class="right">
+            <pill class="yell"><span class="material-symbols-outlined">leak_add</span></pill>
+            <pill class="lred"><span class="material-symbols-outlined">cast</span></pill>
+            <pill class="lgree">4:20 <span class="material-symbols-outlined">Schedule</span></pill>
+        </zone>
+    </taskbar>
+    <taskbar class="edgePieceLeft" hidden><select multiple="no" name="" id="windowList">
+            <option value="droppedTitle" selected default>Minimised Windows</option>
+        </select></taskbar>
+    <script src="assets/libs/nwm/nwm.init.js" type="module"></script>
+    <script type="module" src="assets/js/index.js"></script>
 </body>
 
 </html>
