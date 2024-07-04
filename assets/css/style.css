@@ -70,17 +70,23 @@ dockcontent {
   display: inline-block;
   height: calc(4em - 20px);
   aspect-ratio: 1 / 1;
-  border-radius: 7.08467px;
+  border-radius: 250px;
   transition: all 0.1s;
   transition-timing-function: var(--transitionEasing);
 }
 
 .dockicon:hover {
   scale: 90%;
-}
+  box-shadow: 0px 0px 3px 3px #00ffff88, inset 0px 0px 3px 3px #00ffff88 !important;
 
+}
+.dockicon.active:hover {
+  scale: 90%;
+  box-shadow: 0px 0px 3px 3px #00a6ff88, inset 0px 0px 3px 3px #00a6ff88, 0px 0px 5px 5px #00ffff88, inset 0px 0px 5px 5px #00ffff88 !important;
+
+}
 .dockicon.active {
-  box-shadow: 0px 0px 3px 3px #00a6ff88;
+  box-shadow: 0px 0px 3px 3px #00a6ff88, inset 0px 0px 3px 3px #00a6ff88;
 }
 
 taskbar.edgePiece {
